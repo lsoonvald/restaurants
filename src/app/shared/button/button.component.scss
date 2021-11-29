@@ -1,0 +1,22 @@
+:host {
+  .button {
+    background-color: #3093ba;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .small {
+    padding: 1rem;
+  }
+
+  .large {
+    padding: 2rem;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+  }
+
+  .active {
+    background-color: #47bae8;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="header-container">
+  <app-daypicker [(date)]="date"></app-daypicker>
+</div>
+
+<div class="restaurant-container">
+  <ng-container *ngFor="let restaurant of restaurants | async">
+    <ng-container *ngFor="let menu of restaurant.menu">
+      <app-button *ngIf="menu.date === (date | date:'d.M.yyyy')" size="large" (click)="openMenu(menu.foods)">
+        {{restaurant.name}}</app-button>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #menuDialog let-data>
+  <div class="food-container" *ngFor="let food of data">
+    <div class="title">
+      {{ food.title}}
+    </div>
+    <div class="price">
+      {{ food.price}}
+    </div>
+  </div>
+</ng-template>

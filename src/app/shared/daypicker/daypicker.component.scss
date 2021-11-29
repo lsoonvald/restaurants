@@ -1,0 +1,14 @@
+:host {
+  .button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    ::ng-deep {
+      .button {
+        margin: 1rem;
+      }
+    }
+  }
+}

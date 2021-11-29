@@ -1,0 +1,58 @@
+
+$breakpoints: (
+  xxxs: 340px,
+  xxs: 480px,
+  xs: 720px,
+  sm: 1024px,
+  md: 1280px,
+  lg: 1440px,
+  xl: 1920px,
+  xxl: 2580px
+);
+
+$gutter: 0.5rem;
+$half-gutter: $gutter / 2;
+$quarter: $gutter + $half-gutter;
+$small: $gutter * 2;
+$medium: $gutter * 3;
+$large: $gutter * 4;
+$xxl: $gutter * 6;
+
+$header-height: 4.2rem;
+$footer-height: 6rem;
+
+@mixin break-on($breakpoint, $type) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $mediaValue: map-get($breakpoints, $breakpoint);
+    @if $type == min {
+      @media (min-width: $mediaValue) {
+        @content;
+      }
+    } @else if ($type == max) {
+      @media (max-width: $mediaValue) {
+        @content;
+      }
+    } @else {
+      @warn "Unknown `#{$type}` in $media query type";
+    }
+  } @else {
+    @warn "Unknown `#{$breakpoint}` in $breakpoints";
+  }
+}
+
+html {
+  font-size: 100%;
+  height: 100%;
+  @include break-on(xxxs, max) {
+    font-size: 12px;
+  }
+  @include break-on(xxxs, min) {
+    font-size: 16px;
+  }
+  @include break-on(xl, min) {
+    font-size: 18px;
+  }
+  @include break-on(xxl, min) {
+    font-size: 20px;
+  }
+}

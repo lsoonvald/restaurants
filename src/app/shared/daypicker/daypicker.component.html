@@ -1,0 +1,5 @@
+<div class="button-container">
+  <app-button *ngFor="let option of dateOptions" [active]="(date | date: 'MMM d') === (option | date: 'MMM d')"
+  (click)="setDate(option)">
+    {{option | date: 'MMM d'}}</app-button>
+</div>
