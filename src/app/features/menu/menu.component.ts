@@ -22,8 +22,7 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id') as keyof typeof menuLinks;
-    this.facade.fetchData(id);
+    this.facade.fetchData();
   }
 
   openMenu(menu: Food[]) {
