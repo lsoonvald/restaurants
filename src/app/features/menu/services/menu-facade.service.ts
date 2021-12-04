@@ -15,7 +15,7 @@ export class MenuFacadeService {
     private apiService: MenuApiService
   ) {}
 
-  public fetchData(id: keyof typeof menuLinks): void {
+  public fetchData(): void {
     Object.entries(menuLinks).forEach(([restaurantName, link]) => {
       this.apiService.getRestaurantMenu(link).subscribe((response) => {
         const parser = new DOMParser();
