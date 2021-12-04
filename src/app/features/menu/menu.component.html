@@ -5,7 +5,7 @@
 <div class="restaurant-container">
   <ng-container *ngFor="let restaurant of restaurants | async">
     <ng-container *ngFor="let menu of restaurant.menu">
-      <app-button *ngIf="menu.date === (date | date:'d.M.yyyy')" size="large" (click)="openMenu(menu.foods)">
+      <app-button *ngIf="menu.date === (date | date:'d.M.yyyy') && menu.foods.length" size="large" (click)="openMenu(menu.foods)">
         {{restaurant.name}}</app-button>
     </ng-container>
   </ng-container>
